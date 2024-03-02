@@ -6,7 +6,7 @@ services:
     container_name: teamviewer_con
     image: 'teamviewer_img'
     ports:
-      - "8000:8080"
+      - "8080:8080"
     restart: always
     depends_on:
       - postgres
