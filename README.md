@@ -1,10 +1,10 @@
 # TeamViewer Coding Challenge
 
 ## Prerequisites
-- Have docker installed
-- [Install postgres extension in docker](https://hub.docker.com/_/postgres)
+- Have [docker installed](https://docs.docker.com/engine/install/)
+- Install [postgres extension in docker](https://hub.docker.com/_/postgres)
   - Search bar in docker app ui and enter `postgres`
-- Have java downloaded
+- Have [java 17 downloaded](https://www.oracle.com/java/technologies/downloads/#java17)
 
 ### Data objects
 
@@ -36,11 +36,9 @@
 
 
 ### TODO
-- Service class
-  - Order
-  - OrderItem
 - Error handling on all requests
 - Unit testing
 - Utilize open api
 - Change orderItemEntity in OrderEntity class to array
+- Validate all endpoints in docker
 
