@@ -1,0 +1,15 @@
+spring:
+  docker:
+    compose:
+      enabled: true
+      file: docker-compose.yml
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres-db
+    username: root
+    password: secret
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: create
+server.port: 8000

@@ -1,0 +1,39 @@
+drop table orders;
+drop table order_items;
+drop table products;
+
+
+create table  products(
+id serial primary key,
+product_name varchar(50) not null,
+price numeric
+);
+
+create table order_items(
+id serial primary key,
+quantity Int,
+product_id Int references products(id)
+);
+
+create table orders(
+id serial primary key,
+customer_name varchar(50),
+order_item_id Int references order_items(id)
+);
+
+
+insert into products (id, product_name, price)
+values
+(default, 'test_product_1', 99.99),
+(default, 'test_product_2', 9.99),
+(default, 'test_product_3', 1.00),
+(default, 'test_product_4', 5.99)
+;
+
+
+
+
+
+
+
+
