@@ -3,8 +3,6 @@
 ## Prerequisites
 - Have [docker installed](https://docs.docker.com/engine/install/)
   - If running on windows you may need to enable virtualization in your BIOS settings
-- Install [postgres extension in docker](https://hub.docker.com/_/postgres)
-  - Search bar in docker app ui and enter `postgres`
 - Have [java 17 downloaded](https://www.oracle.com/java/technologies/downloads/#java17)
 
 ## Testing
@@ -17,6 +15,7 @@
 2. enter `./gradlew build` to pull dependencies and generate new jar file
    1. enter `./gradlew clean build` if rerunning after changing code
 3. then enter `docker-compose up`
+   1. you may test with an api platform like postman or use the open api links below
 4. and in a separate`docker-compose down` or `ctrl` + `c` in the same terminal
 
 ## Optional local development
@@ -36,10 +35,10 @@ postgres
 
 ## OpenApi
 #### Running with docker compose
-- [Swagger UI page](http://localhost:8000/v3/swagger-ui.html)
+- [Swagger UI page](http://localhost:8000/swagger-ui/index.html)
 - [OpenAPI description in json format](http://localhost:8000/v3/api-docs)
 #### Running through optional setup
-- [Swagger UI page](http://localhost:8080/v3/swagger-ui.html) 
+- [Swagger UI page](http://localhost:8080/swagger-ui/index.html) 
 - [OpenAPI description in json format](http://localhost:8080/v3/api-docs)
 
 ### Data objects
@@ -56,4 +55,3 @@ postgres
   - ID
   - Name of customer
   - Array of OrderItems
-
