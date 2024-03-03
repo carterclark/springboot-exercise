@@ -19,6 +19,13 @@ public class OrderEntity {
     @ManyToOne
     @JoinColumn(name = "order_item_id", referencedColumnName = "id")
     private OrderItemEntity orderItemEntity;
+    public OrderEntity(){}
+
+    public OrderEntity(Long id, String customerName, OrderItemEntity orderItemEntity) {
+        this.id = id;
+        this.customerName= customerName;
+        this.orderItemEntity = orderItemEntity;
+    }
 
     public Long getId() {
         return id;

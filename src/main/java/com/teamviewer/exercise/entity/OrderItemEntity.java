@@ -18,6 +18,14 @@ public class OrderItemEntity {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private ProductEntity productEntity;
 
+    public OrderItemEntity(long id, int quantity, ProductEntity productEntity) {
+        this.id = id;
+        this.quantity = quantity;
+        this.productEntity = productEntity;
+    }
+
+    public OrderItemEntity(){}
+
     public Long getId() {
         return id;
     }

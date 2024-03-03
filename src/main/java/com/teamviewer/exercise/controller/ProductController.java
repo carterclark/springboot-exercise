@@ -36,11 +36,8 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductEntity> createProduct(@RequestBody ProductRequest productRequest) {
         ProductEntity createdProductEntity = productService.createProduct(productRequest);
-        if (createdProductEntity != null) {
-            return new ResponseEntity<>(createdProductEntity, HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        if (createdProductEntity == null) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(createdProductEntity, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

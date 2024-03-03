@@ -37,6 +37,7 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<OrderEntity> createOrder(@RequestBody OrderRequest orderRequest) {
         OrderEntity createdOrderEntity = orderService.createOrder(orderRequest);
+        if(createdOrderEntity == null) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(createdOrderEntity, HttpStatus.CREATED);
     }
 

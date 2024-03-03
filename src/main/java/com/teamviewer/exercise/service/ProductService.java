@@ -35,6 +35,8 @@ public class ProductService {
     }
 
     public boolean deleteProduct(Long id) {
+        ProductEntity existingProduct = getProductById(id);
+        if(existingProduct == null) return false;
         productRepository.deleteById(id);
         return true;
     }
