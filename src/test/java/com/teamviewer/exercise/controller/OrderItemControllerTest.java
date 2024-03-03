@@ -6,6 +6,7 @@ import com.teamviewer.exercise.service.OrderItemService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.teamviewer.exercise.testUtils.util.getOrderItemEntities;
+import static com.teamviewer.exercise.testUtils.util.getOrderItemRequest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -25,13 +27,8 @@ class OrderItemControllerTest {
     @Mock
     private OrderItemService orderItemService;
 
+    @InjectMocks
     private OrderItemController orderItemController;
-
-    @BeforeEach
-    public void setUp() {
-        orderItemController = new OrderItemController();
-        orderItemController.orderItemService = orderItemService;
-    }
 
     @Test void getAllOrderItems() {
         ResponseEntity<List<OrderItemEntity>> expected = new ResponseEntity<>(getOrderItemEntities(), HttpStatus.OK);
@@ -135,12 +132,5 @@ class OrderItemControllerTest {
         ResponseEntity<Void> actual = orderItemController.deleteOrderItem(1L);
 
         assertEquals(expected.getStatusCode(), actual.getStatusCode());
-    }
-
-    private OrderItemRequest getOrderItemRequest() {
-        OrderItemRequest orderItemRequest = new OrderItemRequest();
-        orderItemRequest.setQuantity(5);
-        orderItemRequest.setProductId(1L);
-        return orderItemRequest;
     }
 }

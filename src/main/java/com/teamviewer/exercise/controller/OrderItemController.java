@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderItemController {
 
     @Autowired
-    OrderItemService orderItemService;
+    private OrderItemService orderItemService;
 
 
     @GetMapping

@@ -28,6 +28,7 @@ public class OrderService {
 
     public OrderEntity createOrder(OrderRequest orderRequest) {
         OrderItemEntity orderItemEntity = orderItemService.getOrderItemById(orderRequest.getOrderItemId());
+        if(orderItemEntity == null) return null;
         return orderRepository.save(orderRequest.toOrderEntity(orderItemEntity));
     }
 
@@ -38,11 +39,12 @@ public class OrderService {
         OrderItemEntity orderItemEntity = orderItemService.getOrderItemById(orderRequest.getOrderItemId());
         existingOrderEntity.setCustomerName(orderRequest.getCustomerName());
         existingOrderEntity.setOrderItemEntity(orderItemEntity);
-
         return orderRepository.save(existingOrderEntity);
     }
 
     public boolean deleteOrder(Long id) {
+        OrderEntity existingOrder = getOrderById(id);
+        if(existingOrder == null) return false;
         orderRepository.deleteById(id);
         return true;
     }

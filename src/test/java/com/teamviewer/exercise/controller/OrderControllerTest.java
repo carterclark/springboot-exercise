@@ -7,6 +7,7 @@ import com.teamviewer.exercise.service.OrderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.teamviewer.exercise.testUtils.util.getOrderEntities;
+import static com.teamviewer.exercise.testUtils.util.getOrderRequest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -26,13 +28,9 @@ class OrderControllerTest {
 
     @Mock
     private OrderService orderService;
-    private OrderController orderController;
 
-    @BeforeEach
-    public void setUp() {
-        orderController = new OrderController();
-        orderController.orderService = orderService;
-    }
+    @InjectMocks
+    private OrderController orderController;
 
     @Test
     void getAllOrderItems() {
@@ -146,16 +144,4 @@ class OrderControllerTest {
         assertEquals(expected.getStatusCode(), actual.getStatusCode());
     }
 
-    private OrderRequest getOrderRequest() {
-        OrderRequest orderRequest = new OrderRequest();
-        orderRequest.setOrderItemId(1L);
-        orderRequest.setCustomerName("testCustomer");
-        return orderRequest;
-    }
-
-    private List<ProductEntity> getProductEntities() {
-        List<ProductEntity> productEntities = new ArrayList<>();
-        productEntities.add(new ProductEntity(1L, "name1", 10.0));
-        return productEntities;
-    }
 }

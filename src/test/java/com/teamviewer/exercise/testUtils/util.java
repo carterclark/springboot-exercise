@@ -3,6 +3,9 @@ package com.teamviewer.exercise.testUtils;
 import com.teamviewer.exercise.entity.OrderEntity;
 import com.teamviewer.exercise.entity.OrderItemEntity;
 import com.teamviewer.exercise.entity.ProductEntity;
+import com.teamviewer.exercise.model.OrderItemRequest;
+import com.teamviewer.exercise.model.OrderRequest;
+import com.teamviewer.exercise.model.ProductRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,5 +38,27 @@ public class util {
         }
         return orderEntities;
     }
+
+    public static ProductRequest getProductRequest() {
+        ProductRequest productRequest = new ProductRequest();
+        productRequest.setName("testName");
+        productRequest.setPrice(12.34);
+        return productRequest;
+    }
+
+    public static OrderItemRequest getOrderItemRequest() {
+        OrderItemRequest orderItemRequest = new OrderItemRequest();
+        orderItemRequest.setQuantity(5);
+        orderItemRequest.setProductId(1L);
+        return orderItemRequest;
+    }
+
+    public static OrderRequest getOrderRequest() {
+        OrderRequest orderRequest = new OrderRequest();
+        orderRequest.setOrderItemId(1L);
+        orderRequest.setCustomerName("testCustomer");
+        return orderRequest;
+    }
+
 
 }

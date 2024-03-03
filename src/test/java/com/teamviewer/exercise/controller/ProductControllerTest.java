@@ -6,6 +6,7 @@ import com.teamviewer.exercise.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.teamviewer.exercise.testUtils.util.getProductEntities;
+import static com.teamviewer.exercise.testUtils.util.getProductRequest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -24,13 +26,9 @@ class ProductControllerTest {
 
     @Mock
     private ProductService productService;
-    private ProductController productController;
 
-    @BeforeEach
-    public void setUp() {
-        productController = new ProductController();
-        productController.productService = productService;
-    }
+    @InjectMocks
+    private ProductController productController;
 
     @Test void getAllProducts() {
         ResponseEntity<List<ProductEntity>> expected = new ResponseEntity<>(getProductEntities(), HttpStatus.OK);
@@ -134,12 +132,5 @@ class ProductControllerTest {
         ResponseEntity<Void> actual = productController.deleteProduct(1L);
 
         assertEquals(expected.getStatusCode(), actual.getStatusCode());
-    }
-
-    private ProductRequest getProductRequest() {
-        ProductRequest productRequest = new ProductRequest();
-        productRequest.setName("testName");
-        productRequest.setPrice(12.34);
-        return productRequest;
     }
 }
