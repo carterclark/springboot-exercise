@@ -34,10 +34,6 @@ postgres
 2. run `ExerciseApplication`
 
 ## OpenApi
-#### Running with docker compose
-- [Swagger UI page](http://localhost:8000/swagger-ui/index.html)
-- [OpenAPI description in json format](http://localhost:8000/v3/api-docs)
-#### Running through optional setup
 - [Swagger UI page](http://localhost:8080/swagger-ui/index.html) 
 - [OpenAPI description in json format](http://localhost:8080/v3/api-docs)
 
