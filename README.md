@@ -7,31 +7,32 @@
   - Search bar in docker app ui and enter `postgres`
 - Have [java 17 downloaded](https://www.oracle.com/java/technologies/downloads/#java17)
 
-### Startup
+### Startup with docker compose
 1. open terminal and cd to app directory
 2. enter `./gradlew build`
 3. then enter `docker-compose up`
 4. and in a separate`docker-compose down` or `ctrl` + `c` in the same terminal
 
 ### Optional local development
-#### IntelliJ
-1. open repo with intellij
-2. enter `./gradlew build` in terminal
-3. build docker postgres with terminal command: `docker-compose.yml -p exercise up -d postgres`
-
-#### Docker postgres
-
-docker run -d --name pg-docker -e POSTGRES_USERNAME=root -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=postgres-db -p 5432:5432 postgres
+#### Start postgres in docker
 `
 docker run -d ^
---name pg-docker ^
+--name postgres-db ^
 -e POSTGRES_USERNAME=root ^
 -e POSTGRES_PASSWORD=secret ^
 -e POSTGRES_DB=postgres-db ^
 -p 5432:5432 ^
 postgres
 `
+#### IntelliJ
+1. open repo with [intellij](https://www.jetbrains.com/idea/download/?fromIDE=&section=windows)
+2. run `ExerciseApplication`
+
 ### OpenApi
+#### docker compose
+- [Swagger UI page](http://localhost:8000/v3/swagger-ui.html)
+- [OpenAPI description in json format](http://localhost:8000/swagger-ui/index.html)
+#### running app locally through optional setup
 - [Swagger UI page](http://localhost:8080/v3/swagger-ui.html) 
 - [OpenAPI description in json format](http://localhost:8080/swagger-ui/index.html)
 

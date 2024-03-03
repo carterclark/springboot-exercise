@@ -33,7 +33,7 @@ public class ProductController {
         }
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<ProductEntity> createProduct(@RequestBody ProductRequest productRequest) {
         ProductEntity createdProductEntity = productService.createProduct(productRequest);
         if (createdProductEntity != null) {
