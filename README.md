@@ -51,10 +51,3 @@ postgres
   - Name of customer
   - Array of OrderItems
 
-### TODO
-- Error handling on all requests
-- Unit testing
-- Utilize open api
-- Change orderItemEntity in OrderEntity class to array
-- Validate all endpoints in docker
-
