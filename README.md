@@ -16,7 +16,7 @@ Submission by Carter Clark for TeamViewer
    1. enter `./gradlew clean build` if rerunning after changing code
 3. then enter `docker-compose up`
    1. you may test with an api platform like postman or use the open api links below
-4. and in a separate`docker-compose down` or `ctrl` + `c` in the same terminal
+4. to stop the application open a separate terminal and enter `docker-compose down` or `ctrl` + `c` in the same terminal
 
 ## Optional local development
 #### Start postgres in docker
