@@ -48,4 +48,4 @@ postgres
 - Order
   - ID
   - Name of customer
-  - Array of OrderItems
+  - OrderItem
