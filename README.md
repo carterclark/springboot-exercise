@@ -1,5 +1,3 @@
-# TeamViewer Coding Challenge
-Submission by Carter Clark for TeamViewer
 ## Prerequisites
 - Have [docker installed](https://docs.docker.com/engine/install/)
   - If running on windows you may need to enable virtualization in your BIOS settings
